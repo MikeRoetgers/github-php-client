@@ -159,6 +159,16 @@ abstract class GitHubClientBase
 		return $this->requestLast($this->lastData);
 	}
 
+	public function arePagesLeft()
+	{
+		if (!empty($this->pageData['next']['page'])) {
+			if ((int)$this->pageData['next']['page'] > $this->lastPage) {
+				return true;
+			}
+		}
+		return false;
+	}
+
 	/**
 	 * do a github request and return array
 	 *
