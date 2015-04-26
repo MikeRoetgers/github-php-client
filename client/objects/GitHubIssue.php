@@ -28,6 +28,7 @@ class GitHubIssue extends GitHubObject
 			'created_at' => 'string',
 			'updated_at' => 'string',
 			'pull_request' => 'GitHubIssuePullRequest',
+			'labels' => 'array<GitHubLabel>'
 		));
 	}
 	
@@ -100,6 +101,11 @@ class GitHubIssue extends GitHubObject
 	 * @var GitHubIssuePullRequest
 	 */
 	protected $pull_request;
+
+    /**
+     * @var GitHubLabel[]
+     */
+    protected $labels;
 
 	/**
 	 * @return string
@@ -212,6 +218,11 @@ class GitHubIssue extends GitHubObject
 	{
 		return $this->pull_request;
 	}
+
+    public function getLabels()
+    {
+        return $this->labels;
+    }
 
 }
 
